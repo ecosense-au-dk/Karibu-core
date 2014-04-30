@@ -13,6 +13,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- The 'pf' property is the root of the resource Propery Files -->
+    <pf>resource/lab-duma</pf>
   </properties>
 
   <dependencies>
@@ -38,4 +40,20 @@
 
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.3</version>
+        <configuration>
+          <mainClass>dk.au.cs.karibu.main.StorageDaemon</mainClass>
+          <arguments>
+            <argument>mongo</argument>
+            <argument>${pf}</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

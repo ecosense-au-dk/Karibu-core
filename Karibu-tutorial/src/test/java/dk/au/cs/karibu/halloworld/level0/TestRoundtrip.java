@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package dk.au.cs.karibu.halloworld; 
+package dk.au.cs.karibu.halloworld.level0; 
  
 import static org.junit.Assert.*; 
 
