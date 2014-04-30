@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.monitor; 
+package dk.au.cs.karibu.monitor; 
  
 /** The JMX storage daemon monitoring interface, defining the
  * aspects that can be monitored from a connection.

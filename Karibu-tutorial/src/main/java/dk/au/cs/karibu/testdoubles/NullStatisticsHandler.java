@@ -14,11 +14,11 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.helloworld.testdoubles;
+package dk.au.cs.karibu.testdoubles;
 
 import java.util.Date;
 
-import cs.karibu.backend.StatisticHandler;
+import dk.au.cs.karibu.backend.StatisticHandler;
 
 /** Null object statistics handler - doing nothing.
  * 

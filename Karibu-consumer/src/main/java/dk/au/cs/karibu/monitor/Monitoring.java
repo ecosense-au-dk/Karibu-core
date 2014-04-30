@@ -14,9 +14,9 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.monitor; 
+package dk.au.cs.karibu.monitor; 
  
-import cs.karibu.backend.MessageReceiverEndpoint;
+import dk.au.cs.karibu.backend.MessageReceiverEndpoint;
  
 /** Implementation of the JMX storage daemon monitoring.
  *  

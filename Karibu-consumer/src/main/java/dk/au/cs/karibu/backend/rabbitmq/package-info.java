@@ -21,4 +21,4 @@
  * @author Henrik Baerbak Christensen, Aarhus University 
  * 
  */ 
-package cs.karibu.backend.rabbitmq;
+package dk.au.cs.karibu.backend.rabbitmq;

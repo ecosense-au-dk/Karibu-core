@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */ 
-package cs.karibu.backend.mongo;
+package dk.au.cs.karibu.backend.mongo;
 
 import java.util.List;
 

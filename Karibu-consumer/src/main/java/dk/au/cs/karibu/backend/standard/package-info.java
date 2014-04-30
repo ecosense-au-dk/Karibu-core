@@ -22,4 +22,4 @@
  * @author Henrik Baerbak Christensen, Aarhus University 
  * 
  */ 
-package cs.karibu.backend.standard;
+package dk.au.cs.karibu.backend.standard;

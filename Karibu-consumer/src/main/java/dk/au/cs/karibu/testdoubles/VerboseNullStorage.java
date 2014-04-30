@@ -14,14 +14,13 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.testdoubles; 
+package dk.au.cs.karibu.testdoubles; 
  
 import java.util.*; 
 
 import com.mongodb.BasicDBObject; 
- 
 
-import cs.karibu.backend.ProcessingStrategy;
+import dk.au.cs.karibu.backend.ProcessingStrategy;
  
 /** This null storage does nothing expect write the
  * stored element to standard output. For historical

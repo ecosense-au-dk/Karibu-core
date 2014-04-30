@@ -27,4 +27,4 @@ Get started by reviewing the Hello World tutorials.
 @author Henrik Baerbak Christensen, Aarhus University 
 
  */ 
-package cs.karibu;
+package dk.au.cs.karibu;

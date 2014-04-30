@@ -22,4 +22,4 @@
  * @author Henrik Baerbak Christensen, Aarhus University 
  * 
  */ 
-package cs.karibu.testdoubles;
+package dk.au.cs.karibu.testdoubles;

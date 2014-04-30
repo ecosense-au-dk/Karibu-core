@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.backend;
+package dk.au.cs.karibu.backend;
 
 /** A message delivery from the MQ containing the
  * payload itself as well as the ID of the message. 

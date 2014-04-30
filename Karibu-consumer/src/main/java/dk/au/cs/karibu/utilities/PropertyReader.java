@@ -1,4 +1,4 @@
-package cs.karibu.utilities;
+package dk.au.cs.karibu.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

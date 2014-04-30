@@ -14,13 +14,13 @@
  * limitations under the License.
  */ 
  
- package cs.karibu.helloworld.testdoubles; 
+package dk.au.cs.karibu.testdoubles; 
  
 import java.io.IOException; 
 import java.util.Stack; 
 
-import cs.karibu.backend.ServerRequestHandler;
-import cs.karibu.producer.ChannelConnector;
+import dk.au.cs.karibu.backend.ServerRequestHandler;
+import dk.au.cs.karibu.producer.ChannelConnector;
  
  
 /** A IPC implementation used for single-VM testing.  

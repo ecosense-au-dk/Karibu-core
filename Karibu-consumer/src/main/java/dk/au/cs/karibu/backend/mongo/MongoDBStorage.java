@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.backend.mongo; 
+package dk.au.cs.karibu.backend.mongo; 
  
 import java.util.List;
 
@@ -23,7 +23,7 @@ import org.slf4j.*;
 
 import com.mongodb.*; 
 
-import cs.karibu.backend.*;
+import dk.au.cs.karibu.backend.*;
 
 /** MongoDB implementation of the Storage interface. 
  *  

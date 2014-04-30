@@ -14,14 +14,14 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.backend.standard;
+package dk.au.cs.karibu.backend.standard;
 
 import java.net.*;
 import java.util.*;
 
 import com.mongodb.BasicDBObject;
 
-import cs.karibu.backend.*;
+import dk.au.cs.karibu.backend.*;
 
 /* The standard implementation of the StatisticsHandler
  * role. Must be configured with proper storage and

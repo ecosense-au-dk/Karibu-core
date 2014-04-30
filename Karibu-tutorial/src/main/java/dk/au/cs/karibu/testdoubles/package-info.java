@@ -21,4 +21,4 @@ These are located in this package.
  
 @Author Henrik Baerbak Christensen, Computer Science, Aarhus University. 
 */ 
-package cs.karibu.helloworld.testdoubles;
+package dk.au.cs.karibu.testdoubles;

@@ -14,9 +14,9 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.backend; 
+package dk.au.cs.karibu.backend; 
 
-import cs.karibu.backend.standard.*;
+import dk.au.cs.karibu.backend.standard.*;
  
 /** A server request handler (Patterns of Software Architecture, 
  * Volume 4).  

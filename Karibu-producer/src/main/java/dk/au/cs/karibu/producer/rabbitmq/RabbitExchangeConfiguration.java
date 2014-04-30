@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.producer.rabbitmq; 
+package dk.au.cs.karibu.producer.rabbitmq; 
 
 import com.rabbitmq.client.Address; 
 

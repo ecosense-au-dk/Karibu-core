@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.helloworld.stage1; 
+package dk.au.cs.karibu.halloworld; 
  
 import static org.junit.Assert.*; 
 
@@ -25,11 +25,11 @@ import org.junit.*;
 
 import com.mongodb.BasicDBObject; 
 
-import cs.karibu.backend.*;
-import cs.karibu.backend.standard.StandardServerRequestHandler;
-import cs.karibu.helloworld.testdoubles.*;
-import cs.karibu.producer.*;
- 
+import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.backend.standard.StandardServerRequestHandler;
+import dk.au.cs.karibu.producer.*;
+import dk.au.cs.karibu.testdoubles.InVMInterProcessConnector;
+
 /** JUnit learning test, a Hello World example of 
  * using the Karibu framework for defining a producer  
  * of data; and example of using the backend  
@@ -135,8 +135,7 @@ public class TestRoundtrip {
     theSerializer = new ExampleSerializer(); 
     theDeserializer =  new ExampleDeserializer(); 
   } 
- 
- 
+  
   // Define the producer code that identify the sender, format and version 
   // of the sent data. Consult the documentation for more information. 
   private final static String EXAMPLE_PRODUCER_CODE = "EXMXX001"; 

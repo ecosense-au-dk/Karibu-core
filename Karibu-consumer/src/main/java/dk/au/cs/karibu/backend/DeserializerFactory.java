@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.backend; 
+package dk.au.cs.karibu.backend; 
  
 /** Abstract factory pattern that allows the server request handler
  * to get access to a deserializer for a given project code.

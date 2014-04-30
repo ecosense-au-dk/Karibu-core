@@ -31,4 +31,4 @@
  * @author Henrik Baerbak Christensen, Aarhus University 
  * 
  */ 
-package cs.karibu.producer;
+package dk.au.cs.karibu.producer;

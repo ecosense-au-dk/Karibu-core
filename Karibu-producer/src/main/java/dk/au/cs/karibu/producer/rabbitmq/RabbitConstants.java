@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.producer.rabbitmq; 
+package dk.au.cs.karibu.producer.rabbitmq; 
  
 /** Collection of constants used to define names 
  * and parameters for the Rabbit implementation of the 

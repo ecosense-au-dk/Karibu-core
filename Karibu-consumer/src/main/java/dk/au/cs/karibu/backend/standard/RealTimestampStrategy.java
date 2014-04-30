@@ -14,11 +14,11 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.backend.standard;
+package dk.au.cs.karibu.backend.standard;
 
 import java.util.Date;
 
-import cs.karibu.backend.TimestampStrategy;
+import dk.au.cs.karibu.backend.TimestampStrategy;
 
 public class RealTimestampStrategy implements TimestampStrategy {
 

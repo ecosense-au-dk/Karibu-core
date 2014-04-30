@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.producer; 
+package dk.au.cs.karibu.producer; 
  
 import java.io.IOException; 
 import java.net.ConnectException; 

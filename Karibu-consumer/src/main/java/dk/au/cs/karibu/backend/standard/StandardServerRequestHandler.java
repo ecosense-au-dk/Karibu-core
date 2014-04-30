@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.backend.standard; 
+package dk.au.cs.karibu.backend.standard; 
  
 import java.util.*; 
 
@@ -23,9 +23,9 @@ import org.slf4j.*;
 
 import com.mongodb.*;
 
-import cs.karibu.backend.*;
-import cs.karibu.testdoubles.*;
-import cs.karibu.utilities.DeadLetterDeserializer;
+import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.testdoubles.*;
+import dk.au.cs.karibu.utilities.DeadLetterDeserializer;
  
 /** Standard implementation of the server request handler. 
  *  

@@ -14,14 +14,14 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.main; 
+package dk.au.cs.karibu.main; 
 
 import java.net.UnknownHostException;
 import java.util.*;
 
-import cs.karibu.backend.*;
-import cs.karibu.backend.standard.*;
-import cs.karibu.utilities.PropertyReader;
+import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.backend.standard.*;
+import dk.au.cs.karibu.utilities.PropertyReader;
 
 /** Main program for the default Karibu backend
  * storage daemon. 

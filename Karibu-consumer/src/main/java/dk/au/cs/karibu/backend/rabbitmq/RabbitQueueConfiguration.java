@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.backend.rabbitmq; 
+package dk.au.cs.karibu.backend.rabbitmq; 
 /** Configuration object defining the 
  * characteristics of a rabbit queue. 
  *  

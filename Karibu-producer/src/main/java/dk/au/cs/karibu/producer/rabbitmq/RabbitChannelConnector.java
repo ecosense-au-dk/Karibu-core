@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.producer.rabbitmq; 
+package dk.au.cs.karibu.producer.rabbitmq; 
  
 import java.io.IOException; 
 import java.security.*; 
@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 
 import com.rabbitmq.client.*; 
 
-import cs.karibu.producer.ChannelConnector;
+import dk.au.cs.karibu.producer.ChannelConnector;
  
 /** A rabbit mq based implementation of the connection 
  * from the client to MQ channel. 

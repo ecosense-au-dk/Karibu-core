@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */ 
-package cs.karibu.testdoubles;
+package dk.au.cs.karibu.testdoubles;
 
 import com.mongodb.BasicDBObject;
 
-import cs.karibu.backend.ProcessingStrategy;
+import dk.au.cs.karibu.backend.ProcessingStrategy;
 
 /** A decorator just for stress testing, as does some
  * special process of the stress testing documents from

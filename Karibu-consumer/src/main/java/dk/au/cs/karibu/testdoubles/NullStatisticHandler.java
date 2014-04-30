@@ -1,8 +1,8 @@
-package cs.karibu.testdoubles;
+package dk.au.cs.karibu.testdoubles;
 
 import java.util.Date;
 
-import cs.karibu.backend.StatisticHandler;
+import dk.au.cs.karibu.backend.StatisticHandler;
 
 public class NullStatisticHandler implements StatisticHandler {
 

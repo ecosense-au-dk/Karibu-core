@@ -14,18 +14,19 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.backend;
+package dk.au.cs.karibu.backend;
 
 import java.net.UnknownHostException;
 import java.util.Properties;
 
 import org.slf4j.*;
 
-import cs.karibu.backend.mongo.*;
-import cs.karibu.backend.rabbitmq.*;
-import cs.karibu.backend.standard.*;
-import cs.karibu.producer.rabbitmq.*;
-import cs.karibu.testdoubles.*;
+import dk.au.cs.karibu.backend.mongo.*;
+import dk.au.cs.karibu.backend.rabbitmq.*;
+import dk.au.cs.karibu.backend.standard.*;
+import dk.au.cs.karibu.producer.rabbitmq.*;
+import dk.au.cs.karibu.testdoubles.MonitoringStorageDecorator;
+
 
 /** This the factory for correctly configuring a MessageReceiverEndpoint
  * that handles backtier processing in Karibu.

@@ -1,4 +1,4 @@
-package cs.karibu.backend.mongo;
+package dk.au.cs.karibu.backend.mongo;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import com.mongodb.ServerAddress;
 
-import cs.karibu.common.FailFast;
+import dk.au.cs.karibu.common.FailFast;
 
 /**
  * Standard implementation of the <code>MongoConfiguration</code> interface.

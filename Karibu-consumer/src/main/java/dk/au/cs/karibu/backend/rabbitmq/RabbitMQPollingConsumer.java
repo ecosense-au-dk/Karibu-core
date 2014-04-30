@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.backend.rabbitmq; 
+package dk.au.cs.karibu.backend.rabbitmq; 
  
 import java.io.IOException; 
 import java.security.*; 
@@ -25,8 +25,8 @@ import org.slf4j.*;
 
 import com.rabbitmq.client.*; 
 
-import cs.karibu.backend.*;
-import cs.karibu.producer.rabbitmq.*;
+import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.producer.rabbitmq.*;
  
 /** A polling consumer implementation that uses RabbitMQ as 
  * message system. 

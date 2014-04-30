@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.backend; 
+package dk.au.cs.karibu.backend; 
  
 import com.mongodb.BasicDBObject; 
  

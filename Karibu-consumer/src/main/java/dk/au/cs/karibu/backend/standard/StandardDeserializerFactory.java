@@ -14,12 +14,12 @@
  * limitations under the License.
  */ 
  
-package cs.karibu.backend.standard; 
+package dk.au.cs.karibu.backend.standard; 
  
 import org.apache.commons.lang.exception.ExceptionUtils; 
 import org.slf4j.*; 
 
-import cs.karibu.backend.*;
+import dk.au.cs.karibu.backend.*;
  
 /** The default factory to produce deserializers. It dynamically
  * class-load the class file with the name of the producer code which

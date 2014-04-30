@@ -20,4 +20,4 @@
  * @author Henrik Baerbak Christensen, Aarhus University 
  * 
  */ 
-package cs.karibu.producer.rabbitmq;
+package dk.au.cs.karibu.producer.rabbitmq;

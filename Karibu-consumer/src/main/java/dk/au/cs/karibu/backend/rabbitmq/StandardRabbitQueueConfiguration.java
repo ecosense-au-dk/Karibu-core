@@ -14,11 +14,11 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.backend.rabbitmq; 
+package dk.au.cs.karibu.backend.rabbitmq; 
 
 import java.util.Properties;
 
-import cs.karibu.common.FailFast;
+import dk.au.cs.karibu.common.FailFast;
 
 /**
  * Standard implementation of the <code>RabbitQueueConfiguration</code>

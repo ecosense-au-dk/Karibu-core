@@ -19,4 +19,4 @@
  * @author Henrik Baerbak Christensen, Aarhus University 
  * 
  */ 
-package cs.karibu.monitor;
+package dk.au.cs.karibu.monitor;

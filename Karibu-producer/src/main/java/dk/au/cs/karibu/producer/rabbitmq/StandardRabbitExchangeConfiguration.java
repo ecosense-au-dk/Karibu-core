@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */ 
-package cs.karibu.producer.rabbitmq;
+package dk.au.cs.karibu.producer.rabbitmq;
 
 import java.util.*;
 
@@ -21,7 +21,7 @@ import org.slf4j.*;
 
 import com.rabbitmq.client.Address;
 
-import cs.karibu.common.FailFast;
+import dk.au.cs.karibu.common.FailFast;
 
 /**
  * Standard implementation of the <code>RabbitExchangeConfiguration</code>

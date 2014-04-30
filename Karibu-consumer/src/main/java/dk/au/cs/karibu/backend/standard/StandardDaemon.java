@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
 
-package cs.karibu.backend.standard;
+package dk.au.cs.karibu.backend.standard;
 
 import java.lang.management.ManagementFactory;
 
@@ -23,8 +23,8 @@ import javax.management.*;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.*;
 
-import cs.karibu.backend.*;
-import cs.karibu.monitor.*;
+import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.monitor.*;
 
 /** The default implementation for a backtier daemon that
  * pulls messages from the MQ and processes them, typically
