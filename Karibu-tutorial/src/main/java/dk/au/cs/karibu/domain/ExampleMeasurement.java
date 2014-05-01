@@ -18,6 +18,8 @@ package dk.au.cs.karibu.domain;
 
 import java.util.Calendar;
 
+import org.codehaus.jackson.map.util.ISO8601DateFormat;
+
 /** This is an example of a measurement class
  * that contains a collection of data that is
  * treated by Karibu as a "whole" to be
@@ -30,20 +32,40 @@ import java.util.Calendar;
 
 public class ExampleMeasurement {
 
-  private Calendar now;
+  private String timestamp;
   private long count;
+  private String theData;
+  
+  final static ISO8601DateFormat isoFormatter = new ISO8601DateFormat(); 
 
-  public ExampleMeasurement(Calendar now, long count) {
-    this.now = now;
+  public ExampleMeasurement(Calendar timestamp, long count) {
+    this.timestamp = isoFormatter.format(timestamp.getTimeInMillis());
     this.count = count;
+    generateDummyForTheData(count);
   }
 
-  public Calendar getNow() {
-    return now;
+  // 90 bytes
+  final static String dummy = 
+      "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789";
+  
+  /** Just generate data of some size for generating
+   * traffic on the network and a bit of load on the
+   * database.
+   * @param count 
+   */
+  private void generateDummyForTheData(long count) {
+    theData = new String();
+    for ( int i = 0; i < 200; i++ ) {
+      theData += "("+count+") " + dummy; // terrible performance, yes
+    }
   }
 
-  public void setNow(Calendar now) {
-    this.now = now;
+  public String getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(String now) {
+    this.timestamp = now;
   }
 
   public long getCount() {
@@ -52,6 +74,14 @@ public class ExampleMeasurement {
 
   public void setCount(long count) {
     this.count = count;
+  }
+
+  public String getTheData() {
+    return theData;
+  }
+
+  public void setTheData(String theData) {
+    this.theData = theData;
   }
 
 

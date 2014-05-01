@@ -54,25 +54,25 @@ public class GenerateLoad {
     ChannelConnector connector = null; 
     RabbitExchangeConfiguration rabbitExchangeConfig =
         new StandardRabbitExchangeConfiguration(exchangeProperties);
-    System.out.println(" ---> the exchange: "+rabbitExchangeConfig.toString());
       
     connector = new RabbitChannelConnector( rabbitExchangeConfig ); 
     
     // Configure the client request handler
-    
     ClientRequestHandler<ExampleMeasurement> readingHandler;
     StandardJSONSerializer<ExampleMeasurement> serializer;
     serializer = new StandardJSONSerializer<ExampleMeasurement>();
+
     readingHandler = new StandardClientRequestHandler<ExampleMeasurement>(DomainConstants.PRODUCER_CODE_EXAMPLE_MEASUREMENT,  
         connector, serializer ); 
 
-    Calendar now; 
-    ExampleMeasurement data;
 
-    // Finally send it 
+    // Finally - generate load by repeatedly sending data...
     System.out.println("Hit CTRL-C to stop producing data - Max throughput pr sec is: "+ maxPrSec); 
     long count = 0L; int countThisSecond = 0;
     long time = System.currentTimeMillis();
+    Calendar now; 
+    ExampleMeasurement data;
+
     while ( true ) {
       // verify that we have not exceeded our max send limit pr sec
       if ( countThisSecond < maxPrSec ) {

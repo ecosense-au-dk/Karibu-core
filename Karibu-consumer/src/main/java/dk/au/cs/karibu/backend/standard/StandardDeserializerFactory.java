@@ -32,10 +32,10 @@ public final class StandardDeserializerFactory implements DeserializerFactory {
   private Logger log; 
  
   public final static String DEFAULT_DESERIALIZER_FOLDER = 
-    "cs.ecosense.karibu.deserializer."; 
+    "dk.au.cs.karibu.deserializer."; 
    
   public StandardDeserializerFactory() { 
-    log = LoggerFactory.getLogger(StandardDeserializerFactory.class); 
+    log = LoggerFactory.getLogger(StandardDeserializerFactory.class);
   } 
    
   @Override 
@@ -55,7 +55,8 @@ public final class StandardDeserializerFactory implements DeserializerFactory {
     } catch (ClassNotFoundException e) { 
       String theTrace = ExceptionUtils.getStackTrace(e); 
       log.error("Could not find deserializer class for producer: "+producerCode 
-          +". "+theTrace); 
+          +". It must be located in classpath in folder "+ DEFAULT_DESERIALIZER_FOLDER
+          +theTrace); 
     } 
     Deserializer theSerializer = (Deserializer) theInstance; 
     return theSerializer; 
