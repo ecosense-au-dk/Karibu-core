@@ -17,6 +17,8 @@
     <pf>resource/lab-duma</pf>
     <!-- Max number of measurements to send per second for load generator -->
     <maxprsec>1</maxprsec>
+    <!-- Name of this node, to identify it for the JMX connections registry -->
+    <hostname>localhost</hostname>
   </properties>
 
   <dependencies>
@@ -97,5 +99,40 @@
 	</plugins>
       </build>
     </profile>
+
+
+    <!-- experimental for now -->
+    <profile>
+      <id>daemon2</id>
+      <activation><property><name>daemon2</name></property></activation>
+      <build>
+	<plugins>
+	  <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.3</version>
+            <configuration>
+	      <executable>java</executable>
+              <arguments>
+		<argument>-Djava.security.policy=resource/security.policy</argument>
+		<argument>-Dcom.sun.management.jmxremote.port=4672</argument>
+		<argument>-Dcom.sun.management.jmxremote.authenticate=false</argument>
+		<argument>-Dcom.sun.management.jmxremote.ssl=false</argument>
+		<argument>-Djava.rmi.server.hostname=${hostname}</argument>
+
+		<argument>-classpath</argument>
+		<classpath/>
+		<argument>dk.au.cs.karibu.main.StorageDaemon</argument>
+		<argument>mongo</argument>
+		<argument>${pf}</argument>
+
+              </arguments>
+            </configuration>
+	  </plugin>
+	</plugins>
+      </build>
+    </profile>
+
+
   </profiles>
 </project>
