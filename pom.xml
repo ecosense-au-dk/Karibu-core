@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>dk.au.cs.karibu</groupId>
+  <artifactId>Karibu-parent</artifactId>
+
+  <packaging>pom</packaging>
+  <version>2.0.0</version>
+
+  <name>Karibu-core</name>
+  <url>http://www.karibu.cs.au.dk/</url>
+  <inceptionYear>2013</inceptionYear>
+
+  <modules>
+    <module>Karibu-producer</module>
+    <module>Karibu-consumer</module>
+  </modules>
+</project>
