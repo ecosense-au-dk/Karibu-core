@@ -17,6 +17,7 @@
 package dk.au.cs.karibu.load;
 
 import java.io.IOException;
+import java.net.*;
 import java.util.*;
 
 import dk.au.cs.karibu.domain.*;
@@ -41,7 +42,7 @@ public class GenerateLoad {
       System.exit(-1); 
     } 
  
-    System.out.println("*** Karibu Load Generator ***"); 
+    System.out.println("*** Karibu Load Generator ***");    
     
     String resourceFolderRoot = args[0];
     int maxPrSec = Integer.parseInt(args[1]);

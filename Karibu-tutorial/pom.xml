@@ -56,6 +56,16 @@
 
   </dependencies>
 
+  <!-- Ensure resource files are copied to 'target' and thus
+       available during execution -->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build> 
+
   <profiles>
     <!-- run daemon: usage: mvn -Ddaemon -Dpf=(resource-root-folder) -->
     <profile>
