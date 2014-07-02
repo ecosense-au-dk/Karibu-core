@@ -1,0 +1,1 @@
+These property files are only used for testing.
