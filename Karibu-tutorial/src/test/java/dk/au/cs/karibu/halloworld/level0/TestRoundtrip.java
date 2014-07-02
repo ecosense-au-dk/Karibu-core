@@ -137,10 +137,6 @@ public class TestRoundtrip {
     theDeserializer =  new ExampleDeserializer(); 
   } 
   
-  // Define the producer code that identify the sender, format and version 
-  // of the sent data. Consult the documentation for more information. 
-  private final static String EXAMPLE_PRODUCER_CODE = "EXMXX001"; 
- 
   /** A sent object should end up in the Mongo storage. This test case 
    * defines a stubbed environment that can validate this. This is 
    * mainly a test of the core framework code (which hopefully should work) 
@@ -161,7 +157,7 @@ public class TestRoundtrip {
     DeserializerFactory factory = new DeserializerFactory() { 
       @Override 
       public Deserializer createDeserializer(String producerCode) { 
-        if (! producerCode.equals(EXAMPLE_PRODUCER_CODE) ) { 
+        if (! producerCode.equals(ExampleSerializer.EXAMPLE_PRODUCER_CODE) ) { 
           throw new RuntimeException("This factory only supports the example deserializer."); 
         } 
         return new ExampleDeserializer(); 
@@ -187,7 +183,7 @@ public class TestRoundtrip {
     // to create the byte array payload to send over the wire. 
     ClientRequestHandler<ExampleDomainClass> crh =  
         new StandardClientRequestHandler<ExampleDomainClass>( 
-            EXAMPLE_PRODUCER_CODE,  
+            ExampleSerializer.EXAMPLE_PRODUCER_CODE,  
             connector, new ExampleSerializer()); 
      
     // Client side 'normal operations' is just sending data to 

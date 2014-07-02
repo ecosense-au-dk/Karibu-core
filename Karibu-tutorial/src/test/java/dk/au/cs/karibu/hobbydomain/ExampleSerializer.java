@@ -6,6 +6,10 @@ import dk.au.cs.karibu.producer.Serializer;
  * on-the-wire format 
  */ 
 public class ExampleSerializer implements Serializer<ExampleDomainClass> { 
+  
+  // Define the producer code that identify the sender, format and version 
+  // of the sent data. Consult the documentation for more information. 
+  public final static String EXAMPLE_PRODUCER_CODE = "EXMXX001"; 
  
   @Override 
   public byte[] serialize(ExampleDomainClass myData) { 
