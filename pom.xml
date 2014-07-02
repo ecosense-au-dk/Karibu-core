@@ -16,5 +16,6 @@
   <modules>
     <module>Karibu-producer</module>
     <module>Karibu-consumer</module>
+    <module>Karibu-tutorial</module>
   </modules>
 </project>
