@@ -28,10 +28,10 @@
       <artifactId>Karibu-consumer</artifactId>
       <version>2.0.0</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
+      <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.7</version>
     </dependency>
     
@@ -124,7 +124,7 @@
             <configuration>
 	      <executable>java</executable>
               <arguments>
-		<argument>-Djava.security.policy=resource/security.policy</argument>
+		<argument>-Djava.security.policy=security.policy</argument>
 		<argument>-Dcom.sun.management.jmxremote.port=4672</argument>
 		<argument>-Dcom.sun.management.jmxremote.authenticate=false</argument>
 		<argument>-Dcom.sun.management.jmxremote.ssl=false</argument>
@@ -135,7 +135,6 @@
 		<argument>dk.au.cs.karibu.main.StorageDaemon</argument>
 		<argument>mongo</argument>
 		<argument>${pf}</argument>
-
               </arguments>
             </configuration>
 	  </plugin>

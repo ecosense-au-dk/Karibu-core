@@ -19,6 +19,8 @@ package dk.au.cs.karibu.main;
 import java.net.UnknownHostException;
 import java.util.*;
 
+import org.slf4j.*;
+
 import dk.au.cs.karibu.backend.*;
 import dk.au.cs.karibu.backend.standard.*;
 import dk.au.cs.karibu.utilities.PropertyReader;
@@ -58,6 +60,11 @@ public class StorageDaemon {
           );
       System.exit(-1);
     }
+    
+    Logger logger = LoggerFactory.getLogger(StorageDaemon.class);
+    
+    logger.info("Karibu Daemon starting...");
+    
     String backendType = args[0];
     String resourceFolderRoot = args[1];
     

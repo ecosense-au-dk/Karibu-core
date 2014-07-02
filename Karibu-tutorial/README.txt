@@ -7,6 +7,10 @@ Execute the Karibu daemon
 
   example: mvn exec:exec -Ddaemon2 -Dpf=resource/lab-punda -Dhostname=10.11.82.60
 
+  The hostname is important to allow 'jconsole' to attach to the daemons JMX
+  port at 4672. One issue pending is that the process does not stop
+  if you hit ctrl-c
+
 
 
  * mvn exec:java -Ddaemon	Execute the Karibu daemon
