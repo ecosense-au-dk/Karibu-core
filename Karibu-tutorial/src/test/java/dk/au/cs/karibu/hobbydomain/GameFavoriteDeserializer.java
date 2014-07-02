@@ -25,5 +25,8 @@ public class GameFavoriteDeserializer implements Deserializer {
     root.put("game", game); 
     return root; 
   } 
-   
+  
+  public String toString() {
+    return "GameFavoriteDeserializer";
+  }
 } 
