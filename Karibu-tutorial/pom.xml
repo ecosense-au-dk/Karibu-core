@@ -18,7 +18,7 @@
     <!-- Max number of measurements to send per second for load generator -->
     <maxprsec>1</maxprsec>
     <!-- Name of this node, to identify it for the JMX connections registry -->
-    <hostname>localhost</hostname>
+    <hostname>10.11.82.60</hostname>
   </properties>
 
   <dependencies>
