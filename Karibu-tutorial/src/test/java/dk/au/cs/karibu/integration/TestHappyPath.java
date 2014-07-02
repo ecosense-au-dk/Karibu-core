@@ -23,7 +23,7 @@ import dk.au.cs.karibu.testdoubles.*;
 
 public class TestHappyPath {
   
-  private ExampleDomainClass ex1, ex2; 
+  private GameFavorite ex1, ex2; 
   
   // Backend roles 
   private FakeObjectStorage                        storage; 
@@ -31,25 +31,25 @@ public class TestHappyPath {
   private InVMInterProcessConnector                connector; 
  
   // Producer roles 
-  private ClientRequestHandler<ExampleDomainClass> crh; 
-  private Serializer<ExampleDomainClass> theSerializer; 
+  private ClientRequestHandler<GameFavorite> crh; 
+  private Serializer<GameFavorite> theSerializer; 
 
   @Before 
   public void setup() { 
-    ex1 = new ExampleDomainClass("Henrik", "StarCraft II"); 
-    ex2 = new ExampleDomainClass("Mikkel", "SkyRim"); 
+    ex1 = new GameFavorite("Henrik", "StarCraft II"); 
+    ex2 = new GameFavorite("Mikkel", "SkyRim"); 
  
     // Configure a testing backend... 
     storage = new FakeObjectStorage(); 
     DeserializerFactory factory;
-    factory = new HobbyDeserializerFactory(); 
+    factory = new GameFavoriteDeserializerFactory(); 
     srh = new StandardServerRequestHandler(storage, factory); 
     connector = new InVMInterProcessConnector(srh); 
  
     // Configure a testing producer 
-    theSerializer = new ExampleSerializer(); 
-    crh = new StandardClientRequestHandler<ExampleDomainClass>( 
-        ExampleSerializer.EXAMPLE_PRODUCER_CODE, connector, theSerializer); 
+    theSerializer = new GameFavoriteSerializer(); 
+    crh = new StandardClientRequestHandler<GameFavorite>( 
+        GameFavoriteSerializer.EXAMPLE_PRODUCER_CODE, connector, theSerializer); 
   } 
 
   @Test 
@@ -66,12 +66,12 @@ public class TestHappyPath {
     BasicDBObject dboStored; 
      
     dboStored = storage. 
-        getCollectionNamed(ExampleSerializer.EXAMPLE_PRODUCER_CODE).get(0); 
+        getCollectionNamed(GameFavoriteSerializer.EXAMPLE_PRODUCER_CODE).get(0); 
     assertEquals("Henrik", dboStored.get("name")); 
     assertEquals("StarCraft II", dboStored.get("game")); 
  
     dboStored = storage. 
-        getCollectionNamed(ExampleSerializer.EXAMPLE_PRODUCER_CODE).get(1); 
+        getCollectionNamed(GameFavoriteSerializer.EXAMPLE_PRODUCER_CODE).get(1); 
     assertEquals("Mikkel", dboStored.get("name")); 
     assertEquals("SkyRim", dboStored.get("game")); 
      

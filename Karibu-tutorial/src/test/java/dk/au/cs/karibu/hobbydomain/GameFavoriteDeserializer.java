@@ -9,7 +9,7 @@ import dk.au.cs.karibu.backend.Deserializer;
 /* Example of a deserializer that converts the on the wire format 
  * into a MongoDB object. 
  */ 
-public class ExampleDeserializer implements Deserializer { 
+public class GameFavoriteDeserializer implements Deserializer { 
  
   @Override 
   public BasicDBObject buildDocumentFromByteArray(byte[] payload) { 

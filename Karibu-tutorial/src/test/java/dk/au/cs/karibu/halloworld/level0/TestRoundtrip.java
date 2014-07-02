@@ -19,7 +19,6 @@ package dk.au.cs.karibu.halloworld.level0;
 import static org.junit.Assert.*; 
 
 import java.io.IOException; 
-import java.util.StringTokenizer; 
 
 import org.junit.*; 
 
@@ -54,7 +53,7 @@ public class TestRoundtrip {
     All example classes are defined at the end of 
     this source file. 
    */ 
-  ExampleDomainClass ex; 
+  GameFavorite ex; 
    
   /** Create object from our domain class for 
    * use in all the test cases */ 
@@ -62,7 +61,7 @@ public class TestRoundtrip {
   public void setup() { 
     // Our domain class encapsulate a person name and a favorite 
     // game. 
-    ex = new ExampleDomainClass("Henrik", "StarCraft II");     
+    ex = new GameFavorite("Henrik", "StarCraft II");     
   } 
    
   // ==== STEP 1: You must define a way to serialize and 
@@ -77,8 +76,8 @@ public class TestRoundtrip {
    */ 
   @Test 
   public void shouldHaveIdemPotentSerialization() { 
-    Serializer<ExampleDomainClass> theSerializer =  
-        new ExampleSerializer(); 
+    Serializer<GameFavorite> theSerializer =  
+        new GameFavoriteSerializer(); 
      
     // Serialize the domain object into a byte array 
     // for on the wire transmission 
@@ -95,7 +94,7 @@ public class TestRoundtrip {
     assertEquals( 't', onTheWirePayload[15]); 
      
     // Next, deserialize it into a MongoDB BSON object 
-    Deserializer theDeserializer = new ExampleDeserializer(); 
+    Deserializer theDeserializer = new GameFavoriteDeserializer(); 
         
     BasicDBObject dbo =  
       theDeserializer.buildDocumentFromByteArray(onTheWirePayload); 
@@ -111,9 +110,9 @@ public class TestRoundtrip {
   /** Validate the serializer/deserializer by more test cases */  
   @Test 
   public void shouldHaveIdemPotentSerializationTriangulated() { 
-    ExampleDomainClass  
-      ex1 = new ExampleDomainClass("Birte", "Age of Empires"), 
-      ex2 = new ExampleDomainClass("Kalle", "Modern Warfare"); 
+    GameFavorite  
+      ex1 = new GameFavorite("Birte", "Age of Empires"), 
+      ex2 = new GameFavorite("Kalle", "Modern Warfare"); 
     createSerializerDeserializerPair(); 
     BasicDBObject dbo1, dbo2; 
      
@@ -130,11 +129,11 @@ public class TestRoundtrip {
   // These classes are duplicated for the sake of 
   // making the first test case as easy to read as 
   // possible. 
-  Serializer<ExampleDomainClass> theSerializer; 
+  Serializer<GameFavorite> theSerializer; 
   Deserializer theDeserializer; 
   private void createSerializerDeserializerPair() { 
-    theSerializer = new ExampleSerializer(); 
-    theDeserializer =  new ExampleDeserializer(); 
+    theSerializer = new GameFavoriteSerializer(); 
+    theDeserializer =  new GameFavoriteDeserializer(); 
   } 
   
   /** A sent object should end up in the Mongo storage. This test case 
@@ -157,10 +156,10 @@ public class TestRoundtrip {
     DeserializerFactory factory = new DeserializerFactory() { 
       @Override 
       public Deserializer createDeserializer(String producerCode) { 
-        if (! producerCode.equals(ExampleSerializer.EXAMPLE_PRODUCER_CODE) ) { 
+        if (! producerCode.equals(GameFavoriteSerializer.EXAMPLE_PRODUCER_CODE) ) { 
           throw new RuntimeException("This factory only supports the example deserializer."); 
         } 
-        return new ExampleDeserializer(); 
+        return new GameFavoriteDeserializer(); 
       } 
     }; 
     // Create a server side request handler 
@@ -181,10 +180,10 @@ public class TestRoundtrip {
     // of the format); which connector to use to send 
     // the data; and of course which serializer to use 
     // to create the byte array payload to send over the wire. 
-    ClientRequestHandler<ExampleDomainClass> crh =  
-        new StandardClientRequestHandler<ExampleDomainClass>( 
-            ExampleSerializer.EXAMPLE_PRODUCER_CODE,  
-            connector, new ExampleSerializer()); 
+    ClientRequestHandler<GameFavorite> crh =  
+        new StandardClientRequestHandler<GameFavorite>( 
+            GameFavoriteSerializer.EXAMPLE_PRODUCER_CODE,  
+            connector, new GameFavoriteSerializer()); 
      
     // Client side 'normal operations' is just sending data to 
     // the server    

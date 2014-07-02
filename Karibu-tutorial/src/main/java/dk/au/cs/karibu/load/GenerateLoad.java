@@ -17,7 +17,6 @@
 package dk.au.cs.karibu.load;
 
 import java.io.IOException;
-import java.net.*;
 import java.util.*;
 
 import dk.au.cs.karibu.domain.*;
