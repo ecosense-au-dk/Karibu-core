@@ -25,9 +25,10 @@ import org.junit.*;
 
 import com.mongodb.BasicDBObject; 
 
+import dk.au.cs.karibu.producer.*;
 import dk.au.cs.karibu.backend.*;
 import dk.au.cs.karibu.backend.standard.StandardServerRequestHandler;
-import dk.au.cs.karibu.producer.*;
+import dk.au.cs.karibu.hobbydomain.*;
 import dk.au.cs.karibu.testdoubles.InVMInterProcessConnector;
 
 /** JUnit learning test, a Hello World example of 
@@ -154,7 +155,7 @@ public class TestRoundtrip {
     // Hello World documentation! 
      
     // Create a fake object storage 
-    FakeObjectStorage storage = new FakeObjectStorage(); 
+    LocalFakeObjectStorage storage = new LocalFakeObjectStorage(); 
     // Create the factory which the server side uses to 
     // lookup the deserializer 
     DeserializerFactory factory = new DeserializerFactory() { 
@@ -203,65 +204,8 @@ public class TestRoundtrip {
   } 
 } 
  
-// ====== Example classes below  
- 
-/* An example of a domain class */ 
-class ExampleDomainClass { 
-  private String name; 
-  private String game; 
- 
-  public ExampleDomainClass(String name, String favoriteComputerGame) { 
-    this.name = name; 
-    this.game = favoriteComputerGame; 
-  } 
- 
-  public String getName() { 
-    return name; 
-  } 
- 
-  public String getGame() { 
-    return game; 
-  } 
-} 
- 
-/* Example of a serializer that converts the domain class to the 
- * on-the-wire format 
- */ 
-class ExampleSerializer implements Serializer<ExampleDomainClass> { 
- 
-  @Override 
-  public byte[] serialize(ExampleDomainClass myData) { 
-    // just make something for the sake of the example 
-    String onTheWireString = myData.getName() + "|" + myData.getGame(); 
-    byte[] payload = onTheWireString.getBytes(); 
-    return payload; 
-  } 
-} 
- 
-/* Example of a deserializer that converts the on the wire format 
- * into a MongoDB object. 
- */ 
-class ExampleDeserializer implements Deserializer { 
- 
-  @Override 
-  public BasicDBObject buildDocumentFromByteArray(byte[] payload) { 
-     
-    String name, game; 
-    String payloadAsString = new String(payload); // convert to String 
-    StringTokenizer st = new StringTokenizer(payloadAsString, "|"); 
-    name = st.nextToken(); 
-    game = st.nextToken(); 
-     
-    BasicDBObject root = new BasicDBObject(); 
-    root.put("name", name); 
-    root.put("game", game); 
-    return root; 
-  } 
-   
-} 
- 
 /* A fake object storage just for testing purposes */ 
-class FakeObjectStorage implements ProcessingStrategy { 
+class LocalFakeObjectStorage implements ProcessingStrategy { 
  
   private BasicDBObject remember; 
  
