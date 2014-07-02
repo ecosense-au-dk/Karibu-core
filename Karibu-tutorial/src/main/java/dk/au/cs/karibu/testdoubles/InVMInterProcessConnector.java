@@ -43,6 +43,8 @@ public class InVMInterProcessConnector implements ChannelConnector {
   private boolean connectionIsOpen; 
   private int countOfCallsToOpen; 
  
+  private int countOfSuccessfulProcessings;
+
   // The stack of exceptions to throw to simulate 
   // send failures 
   private Stack<Exception> exceptionToThrowStack;  
@@ -77,6 +79,9 @@ public class InVMInterProcessConnector implements ChannelConnector {
  
   @Override 
   public void send(byte[] bytes, String topic) throws IOException { 
+    // String contents = new String(bytes, "UTF-8");
+    // System.out.println("*** send: start on "+contents );
+    
     if ( ! connectionIsOpen ) {  
       throw new RuntimeException("Connection has not been opened / in VM connector"); 
     } 
@@ -91,7 +96,8 @@ public class InVMInterProcessConnector implements ChannelConnector {
         throw cache2; 
       } 
     } 
-    serverRequestHandler.receive(bytes); 
+    boolean processingSuccess = serverRequestHandler.receive(bytes); 
+    if ( processingSuccess) { countOfSuccessfulProcessings++; }
   } 
  
   public int getCountOfCallsToOpen() { 
@@ -102,4 +108,9 @@ public class InVMInterProcessConnector implements ChannelConnector {
   public boolean isOpen() { 
     return connectionIsOpen; 
   } 
+  
+  public int getCountOfSuccessfulProcessing() {
+    return countOfSuccessfulProcessings;
+  }
+
 } 
