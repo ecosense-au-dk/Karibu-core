@@ -21,11 +21,20 @@
   </modules>
 
  <distributionManagement>
+   <!-- For test deployments -->
     <repository>
       <id>twiga-test</id>
       <name>Twiga Test</name>
       <url>http://10.11.82.80:8081/artifactory/libs-release-karibu</url>
+    </repository> 
+    <!-- For real deployment -->
+    <!--
+    <repository>
+      <id>twiga-cs</id>
+      <name>Twiga - official CS</name>
+      <url>http://twiga.cs.au.dk:8081/artifactory/libs-release-karibu</url>
     </repository>
+    -->
   </distributionManagement>
   
 </project>
