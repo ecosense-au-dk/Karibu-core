@@ -3,11 +3,11 @@
 
   <modelVersion>4.0.0</modelVersion>
   
-  <groupId>dk.au.cs.karibu</groupId>
-  <artifactId>Karibu-parent</artifactId>
+  <groupId>dkaucs.karibu</groupId>
+  <artifactId>karibu-parent</artifactId>
+  <version>2.0.0</version>
 
   <packaging>pom</packaging>
-  <version>2.0.0</version>
 
   <name>Karibu-core</name>
   <url>http://www.karibu.cs.au.dk/</url>
@@ -20,4 +20,12 @@
     <module>Karibu-tutorial</module>
   </modules>
 
+ <distributionManagement>
+    <repository>
+      <id>twiga-test</id>
+      <name>Twiga Test</name>
+      <url>http://10.11.82.80:8081/artifactory/libs-release-karibu</url>
+    </repository>
+  </distributionManagement>
+  
 </project>

@@ -3,10 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>dk.au.cs.karibu</groupId>
-  <artifactId>Karibu-tutorial</artifactId>
+  <parent>
+    <groupId>dkaucs.karibu</groupId>
+    <artifactId>karibu-parent</artifactId>
+    <version>2.0.0</version>
+  </parent>
+
+  <groupId>dkaucs.karibu</groupId>
+  <artifactId>karibu-tutorial</artifactId>
   <version>0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <name>Karibu-tutorial</name>
   <url>http://www.karibu.cs.au.dk</url>
@@ -24,14 +30,14 @@
   <dependencies>
     
     <dependency>
-      <groupId>dk.au.cs.karibu</groupId>
-      <artifactId>Karibu-serialization</artifactId>
+      <groupId>dkaucs.karibu</groupId>
+      <artifactId>karibu-serialization</artifactId>
       <version>2.0.0</version>
     </dependency>
 
-	<dependency>
-      <groupId>dk.au.cs.karibu</groupId>
-      <artifactId>Karibu-consumer</artifactId>
+    <dependency>
+      <groupId>dkaucs.karibu</groupId>
+      <artifactId>karibu-consumer</artifactId>
       <version>2.0.0</version>
     </dependency>
 
