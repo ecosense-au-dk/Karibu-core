@@ -15,6 +15,8 @@
  */ 
  
 package dk.au.cs.karibu.backend; 
+
+import dk.au.cs.karibu.serialization.Deserializer;
  
 /** Abstract factory pattern that allows the server request handler
  * to get access to a deserializer for a given project code.

@@ -4,7 +4,7 @@ import java.util.StringTokenizer;
 
 import com.mongodb.BasicDBObject;
 
-import dk.au.cs.karibu.backend.Deserializer;
+import dk.au.cs.karibu.serialization.Deserializer;
 
 /* Example of a deserializer that converts the on the wire format 
  * into a MongoDB object. 

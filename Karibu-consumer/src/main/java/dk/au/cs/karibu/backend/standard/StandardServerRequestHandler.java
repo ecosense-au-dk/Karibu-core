@@ -24,6 +24,7 @@ import org.slf4j.*;
 import com.mongodb.*;
 
 import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.serialization.Deserializer;
 import dk.au.cs.karibu.testdoubles.*;
 import dk.au.cs.karibu.utilities.DeadLetterDeserializer;
  

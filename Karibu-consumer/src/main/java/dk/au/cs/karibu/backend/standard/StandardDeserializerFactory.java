@@ -20,6 +20,7 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.*; 
 
 import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.serialization.Deserializer;
  
 /** The default factory to produce deserializers. It dynamically
  * class-load the class file with the name of the producer code which

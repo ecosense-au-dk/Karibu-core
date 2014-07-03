@@ -19,9 +19,12 @@ package dk.au.cs.karibu.producer;
 import java.io.IOException; 
 import java.net.ConnectException; 
  
+
 import org.slf4j.*; 
- 
+
 import com.rabbitmq.client.AlreadyClosedException; 
+
+import dk.au.cs.karibu.serialization.Serializer;
  
 /** A standard implementation of the client request 
  * handler. Individual clients parameterize this with 

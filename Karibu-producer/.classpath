@@ -3,6 +3,8 @@
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="src" path="/Karibu-serialization"/>
+  <classpathentry kind="var" path="M2_REPO/org/mongodb/mongo-java-driver/2.11.2/mongo-java-driver-2.11.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/rabbitmq/amqp-client/3.1.3/amqp-client-3.1.3.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar"/>
 </classpath>

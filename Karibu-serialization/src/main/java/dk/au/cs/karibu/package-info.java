@@ -14,24 +14,13 @@
  * limitations under the License.
  */ 
  
-package dk.au.cs.karibu.producer; 
- 
-/** The serializer encapsulates the 
- * responsibility to convert the 
- * generic typed data structure into 
- * a byte array that can be safely transmitted 
- * over the wire. 
- *  
- * @author Henrik Baerbak Christensen, Aarhus University 
- * 
- * @param <T> 
+/** 
+    The Karibu serialization module defines the interfaces for the
+    serializer and deserializer used in the Karibu framework. 
+    
+    Get started by reviewing the Hello World tutorials. 
+    
+    @author Henrik Baerbak Christensen, Aarhus University 
+
  */ 
-public interface Serializer<T> { 
- 
-  /** Given an instance of a datastructure, return 
-   * a byte array of it in serialized form. 
-   * @param myData 
-   * @return the serialized version. 
-   */ 
-  public byte[] serialize(T myData); 
-} 
+package dk.au.cs.karibu;

@@ -20,8 +20,8 @@ import java.io.IOException;
 
 import org.codehaus.jackson.JsonGenerationException; 
 import org.codehaus.jackson.map.*; 
- 
-import dk.au.cs.karibu.producer.Serializer; 
+
+import dk.au.cs.karibu.serialization.Serializer;
 
 /** A standard implementation of the serializer that 
 * serializes into JSON strings, encoded as byte array. 

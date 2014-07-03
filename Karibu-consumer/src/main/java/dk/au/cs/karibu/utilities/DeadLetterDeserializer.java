@@ -18,9 +18,10 @@ package dk.au.cs.karibu.utilities;
  
 import org.bson.types.Binary; 
  
+
 import com.mongodb.BasicDBObject; 
 
-import dk.au.cs.karibu.backend.Deserializer;
+import dk.au.cs.karibu.serialization.Deserializer;
  
 /** The deserializer used when Karibu encounters a project code
  * that is not known. It creates a document with a single entry

@@ -28,6 +28,7 @@ import dk.au.cs.karibu.producer.*;
 import dk.au.cs.karibu.backend.*;
 import dk.au.cs.karibu.backend.standard.StandardServerRequestHandler;
 import dk.au.cs.karibu.hobbydomain.*;
+import dk.au.cs.karibu.serialization.*;
 import dk.au.cs.karibu.testdoubles.InVMInterProcessConnector;
 
 /** JUnit learning test, a Hello World example of 

@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 
+
 import org.bson.types.Binary; 
 import org.junit.*; 
 
@@ -37,6 +38,7 @@ import dk.au.cs.karibu.backend.DeserializerFactory;
 import dk.au.cs.karibu.backend.standard.StandardServerRequestHandler;
 import dk.au.cs.karibu.hobbydomain.*;
 import dk.au.cs.karibu.producer.*;
+import dk.au.cs.karibu.serialization.Serializer;
 import dk.au.cs.karibu.testdoubles.*;
 
 public class TestDeadLetter {

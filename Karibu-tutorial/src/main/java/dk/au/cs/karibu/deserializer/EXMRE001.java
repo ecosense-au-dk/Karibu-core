@@ -22,7 +22,7 @@ import com.mongodb.BasicDBObject;
 
 import org.codehaus.jackson.map.util.ISO8601Utils;
 
-import dk.au.cs.karibu.backend.Deserializer;
+import dk.au.cs.karibu.serialization.Deserializer;
 
 /** An example deserializer for JSON payloads. 
  * You can write these rather generic using methods

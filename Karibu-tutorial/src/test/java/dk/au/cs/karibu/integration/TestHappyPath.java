@@ -12,6 +12,7 @@ import dk.au.cs.karibu.backend.DeserializerFactory;
 import dk.au.cs.karibu.backend.standard.StandardServerRequestHandler;
 import dk.au.cs.karibu.hobbydomain.*;
 import dk.au.cs.karibu.producer.*;
+import dk.au.cs.karibu.serialization.Serializer;
 import dk.au.cs.karibu.testdoubles.*;
 
 /** Test the normal, happy path, situation in which 

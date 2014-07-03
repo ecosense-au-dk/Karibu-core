@@ -25,6 +25,12 @@
     
     <dependency>
       <groupId>dk.au.cs.karibu</groupId>
+      <artifactId>Karibu-serialization</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+
+	<dependency>
+      <groupId>dk.au.cs.karibu</groupId>
       <artifactId>Karibu-consumer</artifactId>
       <version>2.0.0</version>
     </dependency>

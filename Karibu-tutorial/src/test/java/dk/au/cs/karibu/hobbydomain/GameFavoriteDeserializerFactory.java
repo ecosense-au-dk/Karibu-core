@@ -3,6 +3,7 @@ package dk.au.cs.karibu.hobbydomain;
 import org.slf4j.*;
 
 import dk.au.cs.karibu.backend.*;
+import dk.au.cs.karibu.serialization.Deserializer;
 
 /** A stub factory, that just knows the producer code for 
  * the Example domain classes. 

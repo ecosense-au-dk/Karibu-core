@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package dk.au.cs.karibu.backend; 
+package dk.au.cs.karibu.serialization; 
  
 import com.mongodb.BasicDBObject; 
  
