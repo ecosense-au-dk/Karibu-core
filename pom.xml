@@ -20,8 +20,8 @@
     <module>Karibu-tutorial</module>
   </modules>
 
- <distributionManagement>
-   <!-- For test deployments -->
+  <distributionManagement>
+    <!-- For test deployments -->
     <repository>
       <id>twiga-test</id>
       <name>Twiga Test</name>
@@ -36,5 +36,50 @@
     </repository>
     -->
   </distributionManagement>
+
+  <!-- Ensure that also JavaDoc and Source code is uploaded.
+
+Thanks to
+
+http://avajava.com/tutorials/lessons/how-do-i-generate-and-deploy-a-javadoc-jar-file-for-my-project.html
+
+  -->
+  <build>
+    <plugins>
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-source-plugin</artifactId>
+	<executions>
+	  <execution>
+	    <id>attach-sources</id>
+	    <goals>
+	      <goal>jar</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-javadoc-plugin</artifactId>
+	<executions>
+	  <execution>
+	    <id>attach-javadocs</id>
+	    <goals>
+	      <goal>jar</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
+    </plugins>
+    <extensions>
+      <!-- begin - needed for deploying to repository using webdav -->
+      <extension>
+	<groupId>org.apache.maven.wagon</groupId>
+	<artifactId>wagon-webdav</artifactId>
+	<version>1.0-beta-2</version>
+      </extension>
+      <!-- end - needed for deploying to repository using webdav -->
+    </extensions>
+  </build>
   
 </project>
