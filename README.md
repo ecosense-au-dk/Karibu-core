@@ -29,5 +29,51 @@ The following modules are contained in this project
     as the execution scripts for the daemon. Review the README file in
     the folder.
 
+Building
+---
+
+To build the core modules, you will need Java JDK 1.7.+ and Maven 3.2.+.
+
+From the root you just do the standard `mvn install`.
+
+Eclipse
+---
+
+This always seems to be tricky but here is the procedure I normally use
+
+ * Use `mvn eclipse:eclipse` (and perhaps a `mvn eclipse:clean` before
+   that to ensure a clean start).
+
+ * Make an Eclipse working set, like 'karibu-core'
+
+ * Right-click it and select Import; in the menu, select General and
+   subitem 'Existing Projects into Workspace'. Hit 'Next'.
+
+ * In the dialog, select the karibu-core directory. Click 'Browse' and
+   select all the projects that appear in the menu. Click 'Finish'.
+
+ * The first time around, you have to add the classpath variable
+   'M2_REPO'. Under Eclipse general preferences, browse through
+   'Java', 'Build Path', and 'Classpath Variables'. Next, click on
+   'New' and type 'M2_REPO' in the field 'Name', and write the path to
+   your local Maven repository (e.g. ~/.m2/repository or
+   %USERPROFILE%\.m2\repository) in the field 'Path'. Finish with
+   'OK'.
+
+Deployment at Computer Science, Aarhus University
+---
+
+(This is for internal reference).
+
+You will need to have proper credentials installed in your _settings.xml_
+in your M2_REPO folder.
+
+For test deployments you can deploy to _twiga-test_, for production
+deployment you can deploy to the public Computer Science twiga
+Artifactory repository server. You will have to edit the pom.xml in
+the _distributionManagement_ tag.
+
+The command is `mvn deploy`.
+
 
 

@@ -70,6 +70,7 @@
   <!-- For Execution, these profiles are provided -->
   <profiles>
 
+    <!-- This is for executing the Karibu Daemon -->
     <profile>
       <id>daemon</id>
       <activation><property><name>daemon</name></property></activation>

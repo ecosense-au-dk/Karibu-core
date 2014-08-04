@@ -9,7 +9,8 @@ Execute the Karibu daemon
 
   The hostname is important to allow 'jconsole' to attach to the daemons JMX
   port at 4672. However one issue is pending - as hitting Ctrl-c does not
-  really stop the daemon, you have to use the task manager to do that :(
+  really stop the daemon on Windows 7, you have to use the task manager to 
+  do that :(
 
 
   * mvn exec:java -Dload -Dpf=(resource-root-folder) -Dmaxprsec=(integer) 

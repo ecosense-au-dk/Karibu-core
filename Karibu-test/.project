@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-  <name>Karibu-tutorial</name>
+  <name>karibu-test</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
-    <project>Karibu-serialization</project>
-    <project>Karibu-consumer</project>
-    <project>Karibu-producer</project>
+    <project>karibu-serialization</project>
+    <project>karibu-consumer</project>
+    <project>karibu-producer</project>
   </projects>
   <buildSpec>
     <buildCommand>
