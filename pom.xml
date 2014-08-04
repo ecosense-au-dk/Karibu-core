@@ -17,7 +17,7 @@
     <module>Karibu-serialization</module>
     <module>Karibu-producer</module>
     <module>Karibu-consumer</module>
-    <module>Karibu-tutorial</module>
+    <module>Karibu-test</module>
   </modules>
 
   <distributionManagement>

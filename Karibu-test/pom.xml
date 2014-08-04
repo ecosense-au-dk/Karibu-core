@@ -10,10 +10,10 @@
   </parent>
 
   <groupId>dkaucs.karibu</groupId>
-  <artifactId>karibu-tutorial</artifactId>
+  <artifactId>karibu-test</artifactId>
   <packaging>jar</packaging>
 
-  <name>Karibu-tutorial</name>
+  <name>Karibu-test</name>
   <url>http://www.karibu.cs.au.dk</url>
 
   <properties>
