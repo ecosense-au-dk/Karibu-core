@@ -23,7 +23,7 @@ package dk.au.cs.karibu.backend;
  * @author Henrik Baerbak Christensen, Aarhus University
  *
  */
-public class Delivery {
+public class Delivery { 
 
   private byte[] payload;
   private long deliveryTag;
