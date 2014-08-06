@@ -36,6 +36,15 @@ To build the core modules, you will need Java JDK 1.7.+ and Maven 3.2.+.
 
 From the root you just do the standard `mvn install`.
 
+Learning Karibu-core
+---
+
+If you want to contribute to the core Karibu modules, I advice you
+first learn how to use Karibu, following the
+[Karibu-tutorial](https://github.com/ecosense-au-dk/karibu-tutorial). Next,
+the module `karibu-test` contains a lot of JUnit test that you may use
+to get into the details of Karibu core.
+
 Eclipse
 ---
 
