@@ -3,3 +3,5 @@ target/
 *.bak
 .classpath
 .project
+karibu-daemon.log
+karibu-daemon.log.*
