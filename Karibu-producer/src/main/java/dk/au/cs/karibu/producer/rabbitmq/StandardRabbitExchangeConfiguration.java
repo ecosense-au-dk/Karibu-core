@@ -36,7 +36,7 @@ public class StandardRabbitExchangeConfiguration
 
 	// --*-- Fields --*--
   
-	private boolean sslConnection, exchangeDurable;
+	private boolean sslConnection, exchangeDurable, exchangeAutoDelete = false;
 	private String username, password, exchangeName, exchangeType;
 	private Address[] serverAddressList;
 	
@@ -46,6 +46,8 @@ public class StandardRabbitExchangeConfiguration
 	private final String SSL_CONNECTION = "sslConnection";
 	private final String EXCHANGE_NAME = "exchangeName";
 	private final String EXCHANGE_DURABLE = "exchangeDurable";
+	private final String EXCHANGE_AUTODELETE = "exchangeAutoDelete";
+
 	private final String EXCHANGE_TYPE = "exchangeType";
 	
 	// --*-- Constructors --*--
@@ -66,9 +68,29 @@ public class StandardRabbitExchangeConfiguration
 		boolean exchangeDurable, String exchangeType) {
 		init(username, password, serverAddressList, 
 		    sslConnection, exchangeName,
-				exchangeDurable, exchangeType);	
+				exchangeDurable, exchangeType, false);	
 	}
 	
+	 /**
+   * Constructs a <code>StandardRabbitExchangeConfiguration</code>.
+   * 
+   * @param username -
+   * @param password -
+   * @param serverAddressList -
+   * @param sslConnection -
+   * @param exchangeName -
+   * @param exchangeDurable -
+   * @param exchangeType -
+   * @param exchangeAutoDelete -
+   */
+  public StandardRabbitExchangeConfiguration(String username, String password,
+    Address[] serverAddressList, boolean sslConnection, String exchangeName,
+    boolean exchangeDurable, String exchangeType, boolean exchangeAutoDelete) {
+    init(username, password, serverAddressList, 
+        sslConnection, exchangeName,
+        exchangeDurable, exchangeType, exchangeAutoDelete);
+  }
+
 	/**
 	 * Constructs a <code>StandardRabbitExchangeConfiguration</code>.
 	 * 
@@ -89,6 +111,17 @@ public class StandardRabbitExchangeConfiguration
 		boolean exchangeDurable = 
 		    FailFast.readProperty(exchangeProperties, EXCHANGE_DURABLE).equalsIgnoreCase("true");
 		
+		boolean exchangeAutoDelete;
+		try {
+		  System.err.println("DEBUG: checking for exchangeAutoDelete property");
+		  exchangeAutoDelete = 
+        FailFast.readProperty(exchangeProperties, EXCHANGE_AUTODELETE).equalsIgnoreCase("true");
+		}
+		catch (RuntimeException e) {
+		  // Make EXCHANGE_AUTODELETE an optional property, defaulting to false
+		  exchangeAutoDelete = false;
+		}
+
 		String exchangeType = 
 		    FailFast.readProperty(exchangeProperties, EXCHANGE_TYPE);
 		
@@ -121,7 +154,7 @@ public class StandardRabbitExchangeConfiguration
 		}
 		Address[] serverAddressList = addresses.toArray(new Address[0]);
 		init(username, password, serverAddressList, sslConnection,
-				exchangeName, exchangeDurable, exchangeType);
+				exchangeName, exchangeDurable, exchangeType, exchangeAutoDelete);
 	}
 	
 	// --*-- Methods --*--
@@ -136,10 +169,11 @@ public class StandardRabbitExchangeConfiguration
 	 * @param exchangeName -
 	 * @param exchangeDurable -
 	 * @param exchangeType -
+   * @param exchangeAutoDelete -
 	 */
 	private void init(String username, String password,
 			Address[] serverAddressList, boolean sslConnection,
-			String exchangeName, boolean exchangeDurable, String exchangeType) {
+			String exchangeName, boolean exchangeDurable, String exchangeType, boolean exchangeAutoDelete) {
 		this.username = username;
 		this.password = password;
 		this.serverAddressList = serverAddressList;
@@ -147,6 +181,7 @@ public class StandardRabbitExchangeConfiguration
 		this.exchangeName = exchangeName;
 		this.exchangeDurable = exchangeDurable;
 		this.exchangeType = exchangeType;
+		this.exchangeAutoDelete = exchangeAutoDelete;
 	}
 	
 	/**
@@ -166,7 +201,8 @@ public class StandardRabbitExchangeConfiguration
 			   "], sslConnection : " + isSSLConnection() +
 			   ", exchangeName : " + getExchangeName() +
 			   ", exchangeDurable : " + isExchangeDurable() +
-			   ", exchangeType : " + getExchangeType() +
+         ", exchangeAutoDelete : " + isExchangeAutoDelete() +
+         ", exchangeType : " + getExchangeType() +
 			   ")";
 	}
 	
@@ -219,7 +255,15 @@ public class StandardRabbitExchangeConfiguration
 	public boolean isExchangeDurable() {
 		return exchangeDurable;
 	}
-	
+
+	 /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean isExchangeAutoDelete() {
+    return exchangeAutoDelete;
+  }
+
 	/**
 	 * {@inheritDoc}
 	 */

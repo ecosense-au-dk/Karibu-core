@@ -76,6 +76,11 @@ public interface RabbitExchangeConfiguration {
 	 */
 	public boolean isExchangeDurable(); 
 
+  /**
+   * Returns true if the exchange is set to autoDelete.
+   */
+  public boolean isExchangeAutoDelete();
+  
 	/**
 	 * Returns the exchange type.
 	 * 

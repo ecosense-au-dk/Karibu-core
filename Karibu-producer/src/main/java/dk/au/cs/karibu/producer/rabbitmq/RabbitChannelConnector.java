@@ -77,8 +77,9 @@ public class RabbitChannelConnector implements ChannelConnector {
     channel.exchangeDeclare( 
         exchangeConfiguration.getExchangeName(), 
         exchangeConfiguration.getExchangeType(), 
-        exchangeConfiguration.isExchangeDurable() ); 
- 
+        exchangeConfiguration.isExchangeDurable(), 
+        exchangeConfiguration.isExchangeAutoDelete(), null);
+
     // The queue and the binding between queue and exchange is defined by the server side! 
   } 
  

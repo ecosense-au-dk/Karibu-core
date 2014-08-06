@@ -72,7 +72,8 @@ public class RabbitMQPollingConsumer implements PollingConsumer {
     channel.exchangeDeclare( 
         exchangeConfiguration.getExchangeName(), 
         exchangeConfiguration.getExchangeType(), 
-        exchangeConfiguration.isExchangeDurable() ); 
+        exchangeConfiguration.isExchangeDurable(),
+        exchangeConfiguration.isExchangeAutoDelete(), null);
      
     // 'RabbitMQ in Action' p 102 
     Map<String,Object> moreArguments = 
