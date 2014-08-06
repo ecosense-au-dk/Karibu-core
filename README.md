@@ -5,12 +5,12 @@ Karibu core components for a Karibu based infrastructure: client-side
 library, server side daemon, and the central serialization interfaces.
 
 If you just want to use Karibu and not tingle with the inner workings,
-you should find the **Karibu-tutorial** instead on GitHub, and go over
+you should find the *Karibu-tutorial* instead on GitHub, and go over
 the tutorials and guides there. 
 
 All the modules mentioned below more easily access through maven/ivy
 dependency management, than by building them from the source
-code. Review the Ant scripts in the **Karibu-tutorial** project.
+code. Review the Ant scripts in the *Karibu-tutorial* project.
 
 Modules in Karibu-core
 ---
