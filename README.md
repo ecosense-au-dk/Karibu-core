@@ -69,20 +69,5 @@ This always seems to be tricky but here is the procedure I normally use
    %USERPROFILE%\.m2\repository) in the field 'Path'. Finish with
    'OK'.
 
-Deployment at Computer Science, Aarhus University
----
-
-(This is for internal reference).
-
-You will need to have proper credentials installed in your _settings.xml_
-in your M2_REPO folder.
-
-For test deployments you can deploy to _twiga-test_, for production
-deployment you can deploy to the public Computer Science twiga
-Artifactory repository server. You will have to edit the pom.xml in
-the _distributionManagement_ tag.
-
-The command is `mvn deploy`.
-
 
 
