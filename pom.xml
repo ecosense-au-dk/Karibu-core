@@ -5,7 +5,7 @@
   
   <groupId>dkaucs.karibu</groupId>
   <artifactId>karibu-parent</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
@@ -92,7 +92,7 @@ http://avajava.com/tutorials/lessons/how-do-i-generate-and-deploy-a-javadoc-jar-
   <scm>
     <connection>scm:git:https://github.com/ecosense-au-dk/Karibu-core.git</connection>
     <url>https://github.com/ecosense-au-dk/Karibu-core</url>
-    <tag>karibu-parent-2.0.1</tag>
+    <tag>HEAD</tag>
   </scm>  
 
 
