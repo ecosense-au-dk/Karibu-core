@@ -13,6 +13,10 @@
   <url>http://www.karibu.cs.au.dk/</url>
   <inceptionYear>2013</inceptionYear>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <modules>
     <module>Karibu-serialization</module>
     <module>Karibu-producer</module>
@@ -22,19 +26,19 @@
 
   <distributionManagement>
     <!-- For test deployments -->
+    <!--
     <repository>
       <id>twiga-test</id>
       <name>Twiga Test</name>
       <url>http://10.11.82.80:8081/artifactory/libs-release-karibu</url>
-    </repository> 
+    </repository>
+    -->
     <!-- For real deployment -->
-    <!--
     <repository>
       <id>twiga-cs</id>
       <name>Twiga - official CS</name>
       <url>http://twiga.cs.au.dk:8081/artifactory/libs-release-karibu</url>
     </repository>
-    -->
   </distributionManagement>
 
   <!-- Ensure that also JavaDoc and Source code is uploaded.
@@ -48,52 +52,51 @@ http://avajava.com/tutorials/lessons/how-do-i-generate-and-deploy-a-javadoc-jar-
     <plugins>
       <!-- Plugins for generating jars containing source code and javadoc -->
       <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-source-plugin</artifactId>
-	<version>2.3</version>
-	<executions>
-	  <execution>
-	    <id>attach-sources</id>
-	    <goals>
-	      <goal>jar</goal>
-	    </goals>
-	  </execution>
-	</executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-javadoc-plugin</artifactId>
-	<version>2.9.1</version>
-	<executions>
-	  <execution>
-	    <id>attach-javadocs</id>
-	    <goals>
-	      <goal>jar</goal>
-	    </goals>
-	  </execution>
-	</executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
     <extensions>
       <!-- begin - needed for deploying to repository using webdav -->
       <extension>
-	<groupId>org.apache.maven.wagon</groupId>
-	<artifactId>wagon-webdav</artifactId>
-	<version>1.0-beta-2</version>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-2</version>
       </extension>
       <!-- end - needed for deploying to repository using webdav -->
     </extensions>
   </build>
   
   <!-- Define the SCM for git. Used by the maven release plugin.
-     Note: you still have to provide credentials ala
-     mvn release:prepare -Dusername=(github username) -Dpassword=(pwd)
+       Note: you still have to provide credentials ala
+       mvn release:prepare -Dusername=(github username) -Dpassword=(pwd)
   -->
   <scm>
     <connection>scm:git:https://github.com/ecosense-au-dk/Karibu-core.git</connection>
     <url>https://github.com/ecosense-au-dk/Karibu-core</url>
     <tag>HEAD</tag>
   </scm>  
-
 
 </project>
