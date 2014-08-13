@@ -1,16 +1,21 @@
 Karibu-core
 ===========
 
+Version 1, August 2014.
+
+*Henrik Bærbak Christensen, Department of Computer Science, University
+ of Aarhus.*
+
+
 Karibu core components for a Karibu based infrastructure: client-side
 library, server side daemon, and the central serialization interfaces.
 
-If you just want to use Karibu and not tingle with the inner workings,
-you should find the *Karibu-tutorial* instead on GitHub, and go over
-the tutorials and guides there. 
-
-All the modules mentioned below more easily access through maven/ivy
-dependency management, than by building them from the source
-code. Review the Ant scripts in the *Karibu-tutorial* project.
+*Note:* You should normally not clone this repository unless you want
+ to fix defects or propose new features. The contents of these modules
+ are more easily fetched using maven or ivy. To *use* Karibu, please
+ go to the
+ [karibu-tutorial](https://github.com/ecosense-au-dk/karibu-tutorial)
+ instead on GitHub, and go over the tutorials and guides there.
 
 Modules in Karibu-core
 ---
@@ -26,7 +31,7 @@ The following modules are contained in this project
   * Karibu-consumer: The daemon code.	 
 
   * Karibu-test: JUnit test cases for all three modules above, as well
-    as the execution scripts for the daemon. Review the README file in
+    as an example execution scripts for the daemon. Review the README file in
     the folder.
 
 Building
@@ -68,6 +73,19 @@ This always seems to be tricky but here is the procedure I normally use
    your local Maven repository (e.g. ~/.m2/repository or
    %USERPROFILE%\.m2\repository) in the field 'Path'. Finish with
    'OK'.
+
+Releasing and deploying Karibu modules
+---
+
+Generally, the release and branching strategy used in Karibu is taken
+from [A successful Git branching
+model](http://nvie.com/posts/a-successful-git-branching-model/).
+
+The release and deployment procedure is outlined in detail in the
+internal AU document in the project 'Karibu-EcoSense-Production'.
+
+Contact Henrik Bærbak if you are interested.
+
 
 
 
