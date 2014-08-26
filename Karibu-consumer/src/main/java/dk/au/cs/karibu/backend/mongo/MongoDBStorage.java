@@ -145,8 +145,6 @@ public class MongoDBStorage
     if ( ! err.ok() ) {
       log.error("MongoDB insert failed with result: "+err.toString());
     }
-   
-    System.err.println("Will store "+dbo);
+    // System.err.println("Will store "+dbo);
   } 
-
 } 

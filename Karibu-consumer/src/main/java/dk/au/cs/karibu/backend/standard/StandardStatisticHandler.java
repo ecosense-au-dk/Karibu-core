@@ -137,7 +137,7 @@ public class StandardStatisticHandler implements StatisticHandler {
     totalCountMsg = 0L;
     
     try {
-      daemonIP = Inet4Address.getLocalHost().getHostAddress();
+      daemonIP = Inet4Address.getLocalHost().getCanonicalHostName();
     } catch (UnknownHostException e) {
       daemonIP = "Undefined";
     }
