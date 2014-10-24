@@ -116,6 +116,29 @@
       </build>
     </profile>
 
+    <profile>
+      <id>phone</id>
+      <activation><property><name>phone</name></property></activation>
+      <build>
+	<plugins>
+	  <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.3.1</version>
+            <configuration>
+              <mainClass>
+		dk.au.cs.karibu.endurance.SimulateSmartphoneApp
+	      </mainClass>
+              <arguments>
+		<argument>${pf}</argument>
+		<argument>${delay}</argument>
+              </arguments>
+            </configuration>
+	  </plugin>
+	</plugins>
+      </build>
+    </profile>
+
 
 
   </profiles>
