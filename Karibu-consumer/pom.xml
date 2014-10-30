@@ -11,7 +11,7 @@
   <artifactId>karibu-consumer</artifactId>
   <packaging>jar</packaging>
 
-  <name>Karibu-consumer</name>
+  <name>karibu-consumer</name>
   <url>http://maven.apache.org</url>
 
   <properties>

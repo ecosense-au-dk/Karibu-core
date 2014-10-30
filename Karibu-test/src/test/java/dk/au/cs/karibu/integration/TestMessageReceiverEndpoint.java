@@ -158,6 +158,7 @@ public class TestMessageReceiverEndpoint {
       System.out.println("-> "+logentry);
     }
   }
+  
  
   /** Test the receiver end point in case connection problems occur. */ 
   @Test 
@@ -179,7 +180,7 @@ public class TestMessageReceiverEndpoint {
     assertNotNull(dbo); 
  
     // tell the polling consumer to throw an exception on the next call to a fecth from the queue.
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP001", null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
     
     // this should succeed but the log must show a reconnect was initiated 
     crh.send(p2, EXAMPLE_TOPIC); 
@@ -212,8 +213,8 @@ public class TestMessageReceiverEndpoint {
     crh.send(p2, EXAMPLE_TOPIC);     
     Thread.sleep(100); 
 
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP001", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP002", null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
 
     // this should succeed, but the log must contain the full log exponential backup 
     crh.send(p1, EXAMPLE_TOPIC);     
@@ -236,9 +237,9 @@ public class TestMessageReceiverEndpoint {
     // Next, ensure that the exp backoff counter is reset after a successful send, AND the
     // dublication of timing
     
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP003", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP004", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP005", null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
 
     // this should succeed, but the log must contain the full log exponential backup 
     crh.send(p1, EXAMPLE_TOPIC);     
@@ -259,17 +260,17 @@ public class TestMessageReceiverEndpoint {
     crh.send(p2, EXAMPLE_TOPIC);     
     Thread.sleep(100); 
 
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP001", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP002", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP003", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP004", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP005", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP006", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP007", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP008", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP009", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP010", null) );
-    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, "EXP011", null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
+    pollingConsumer.pushExceptionToBeThrownNext( new ShutdownSignalException(false, true, null, null) );
 
     crh.send(p1, EXAMPLE_TOPIC);     
     Thread.sleep(4500);

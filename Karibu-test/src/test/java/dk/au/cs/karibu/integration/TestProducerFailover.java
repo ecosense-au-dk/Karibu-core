@@ -24,7 +24,7 @@ import java.net.ConnectException;
 import org.junit.*;
 
 import com.mongodb.BasicDBObject;
-import com.rabbitmq.client.AlreadyClosedException;
+import com.rabbitmq.client.*;
 
 import dk.au.cs.karibu.backend.*;
 import dk.au.cs.karibu.backend.standard.StandardServerRequestHandler;
@@ -54,7 +54,14 @@ public class TestProducerFailover {
   // to get access to the special testing API 
   private InVMInterProcessConnector asStubConnector; 
  
-  private GameFavorite p1, p2; 
+  private GameFavorite p1, p2;
+  
+  /* Upgrading to rabbit client library 3.3 from 3.1 was tedios
+   * as the exception classes where radically changed. Now
+   * AlreadyClosedException wraps a ShutdownSignalException and
+   * I cannot configure it to give them unique identities :( -HBC
+   */
+  private ShutdownSignalException sse; 
 
   @Before 
   public void setup() throws IOException { 
@@ -80,6 +87,8 @@ public class TestProducerFailover {
      
     p1 = new GameFavorite("Henrik", "SCII"); 
     p2 = new GameFavorite("Bimse", "Bimses julerejse"); 
+    
+    sse = new ShutdownSignalException(false, true, null, null);
    } 
 
   @Test 
@@ -104,10 +113,10 @@ public class TestProducerFailover {
     // Next ensure that a AlreadyClosedException occurs 
     // and validate that a) a retry is attempted and b) 
     // the data are sent nevertheless. 
-    asStubConnector.pushExceptionToBeThrownAtNextSend( new AlreadyClosedException("Ex01", null)); 
+    asStubConnector.pushExceptionToBeThrownAtNextSend( new AlreadyClosedException(sse)); 
     crh.send(p2, EXAMPLE_TOPIC); 
     // verify the logged message, thus spying on the request handler 
-    assertEquals( "INFO:AlreadyClosedException/retry=1/Msg=clean connection shutdown; reason: Ex01",  
+    assertEquals( "INFO:AlreadyClosedException/retry=1/Msg=channel is already closed due to clean channel shutdown",  
         spyLogger.getLastLog()); 
     // and verify that the message indeed got through 
     assertEquals( "Bimse", storage.getCollectionNamed(PRODUCER_CODE).get(0).getString("name")); 
@@ -119,10 +128,13 @@ public class TestProducerFailover {
   @Test 
   public void shouldResendWhenMultipleAlreadyClosedExcpetionsOccurs() throws IOException { 
    // Assert multiple exceptions are handled, by pushing the last exception first (stack behaviour) 
-    asStubConnector.pushExceptionToBeThrownAtNextSend( new AlreadyClosedException("Ex03", null)); 
-    asStubConnector.pushExceptionToBeThrownAtNextSend( new AlreadyClosedException("Ex02", null)); 
+    ShutdownSignalException sse1 = new ShutdownSignalException(false, true, null, null);
+    ShutdownSignalException sse2 = new ShutdownSignalException(false, true, null, null);
+
+    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException(sse1)); 
+    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException(sse2)); 
     crh.send(p1, EXAMPLE_TOPIC); 
-    assertEquals( "INFO:AlreadyClosedException/retry=2/Msg=clean connection shutdown; reason: Ex03",  
+    assertEquals( "INFO:AlreadyClosedException/retry=2/Msg=channel is already closed due to clean channel shutdown",  
         spyLogger.getLastLog()); 
     // and verify that the message indeed got through 
     assertEquals( "Henrik", storage.getCollectionNamed(PRODUCER_CODE).get(0).getString("name")); 
@@ -143,7 +155,7 @@ public class TestProducerFailover {
      
     // Finally validate interleaved failures 
     asStubConnector.pushExceptionToBeThrownAtNextSend(new ConnectException("CEx04")); 
-    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException("Ex05", null)); 
+    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException(sse)); 
     crh.send(p1, EXAMPLE_TOPIC); 
     assertEquals( "INFO:ConnectException/retry=2/Msg=CEx04",  
         spyLogger.getLastLog()); 
@@ -157,8 +169,8 @@ public class TestProducerFailover {
     // Ensure that reconnect attempts are only made five times. 
     asStubConnector.pushExceptionToBeThrownAtNextSend(new ConnectException("CEx06")); 
     asStubConnector.pushExceptionToBeThrownAtNextSend(new ConnectException("CEx05")); 
-    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException("Ex04", null)); 
-    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException("Ex03", null)); 
+    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException(sse)); 
+    asStubConnector.pushExceptionToBeThrownAtNextSend(new AlreadyClosedException(sse)); 
     asStubConnector.pushExceptionToBeThrownAtNextSend(new ConnectException("CEx02")); 
     asStubConnector.pushExceptionToBeThrownAtNextSend(new ConnectException("CEx01")); 
    
@@ -173,6 +185,5 @@ public class TestProducerFailover {
     assertEquals( 6, asStubConnector.getCountOfCallsToOpen() ); 
  
   } 
-
 
 }

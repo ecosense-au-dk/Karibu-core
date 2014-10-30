@@ -11,7 +11,7 @@
   <artifactId>karibu-test</artifactId>
   <packaging>jar</packaging>
 
-  <name>Karibu-test</name>
+  <name>karibu-test</name>
   <url>http://www.karibu.cs.au.dk</url>
 
   <properties>

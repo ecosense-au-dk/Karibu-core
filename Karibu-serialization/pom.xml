@@ -11,7 +11,7 @@
   <artifactId>karibu-serialization</artifactId>
   <packaging>jar</packaging>
 
-  <name>Karibu-serialization</name>
+  <name>karibu-serialization</name>
   <url>http://www.karibu.cs.au.dk</url>
 
   <properties>
