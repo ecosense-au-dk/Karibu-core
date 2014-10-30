@@ -28,7 +28,7 @@ public class SimulateSmartphoneApp {
       System.exit(-1); 
     } 
  
-    System.out.println("*** Karibu Smartphone App Simulation ***");    
+    System.out.println("*** Karibu Smartphone App Simulation v2 ***");    
     
     String resourceFolderRoot = args[0];
     int delayInSec = Integer.parseInt(args[1]);
@@ -53,26 +53,30 @@ public class SimulateSmartphoneApp {
 
     // Finally - generate load by repeatedly sending data...
     System.out.println("Hit CTRL-C to stop producing data - delay betweeen sending: "+ delayInSec); 
-    long count = 0L;
+    long count = 1L;
+    long hickupsInterval = 10L;
     Calendar now; 
     ExampleMeasurement data;
+    boolean hickup = false;
+
+    readingHandler = new StandardClientRequestHandler<ExampleMeasurement>(DomainConstants.PRODUCER_CODE_EXAMPLE_MEASUREMENT,  
+        connector, serializer ); 
 
     while ( true ) {
-        now = Calendar.getInstance(); 
-        data = new ExampleMeasurement(now, count); 
+      now = Calendar.getInstance(); 
+      data = new ExampleMeasurement(now, count); 
+      hickup = count % hickupsInterval == 0;
 
-        // A smartphone app goes through the full cycle of creating a
-        // client request handler, sending data, and closing connection
-        readingHandler = new StandardClientRequestHandler<ExampleMeasurement>(DomainConstants.PRODUCER_CODE_EXAMPLE_MEASUREMENT,  
-            connector, serializer ); 
-        readingHandler.send(data, DomainConstants.STORE_TOPIC_EXAMPLE_MEASUREMENT); 
-        connector.closeConnection();
-        
-        count++;
-        
-        System.out.println("  Send Count = "+count + " at "+ new Date() ); 
-        
-        Thread.sleep(delayInSec*1000L);
+      readingHandler.send(data, DomainConstants.STORE_TOPIC_EXAMPLE_MEASUREMENT); 
+      // Simulate error condition where closeConnection is not called
+      if (! hickup) { connector.closeConnection(); }
+
+      System.out.println("  Send Count = "+count + " at "+ new Date() +" hickup: "+hickup); 
+
+      Thread.sleep(delayInSec*1000L);
+
+      count++;
+
     }
   }
 }

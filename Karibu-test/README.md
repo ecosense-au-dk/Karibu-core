@@ -12,9 +12,7 @@ provided here especially to execute the daemon during new development
 of the core modules.
 
 
-
-
-How to execute daemon and load generator
+How to execute daemon 
 -----------
 
 First - ensure you have executed `mvn install` in the root of
@@ -32,10 +30,30 @@ JMX port at 4672. However one issue is pending - as hitting Ctrl-c
 does not really stop the daemon on Windows 7, you have to use the task
 manager to do that :(
 
+How to execute and load generator and phone simulator
+-------
+
+The load generator is used to generate heavy load from a single
+client. In our production system values up to 125 msg/sec are handled
+by RabbitMQ - but as MongoDB is a bottleneck it will eventually flood
+the daemon layer.
 
   `mvn exec:java -Dload -Dpf=(resource-root-folder) -Dmaxprsec=(integer)`
 
 Executes the load generator with (integer) messages of type EXMRE001 per second.
+
+
+To facilitate error hunting in hanging connections on the client side
+of RabbitMQ, the following will simulate repeated uploads from a
+smartphone. The delay is in seconds between uploads. This simulator
+does a full 'open connection, send, close connection' between each
+upload.
+
+  `mvn exec:java -Dphone -Dpf=(resource-root-folder) -Ddelay=(integer)`
+
+Executes the phone simulation with (integer) delay between upload of type EXMRE001.
+
+
 
 
 Advice
