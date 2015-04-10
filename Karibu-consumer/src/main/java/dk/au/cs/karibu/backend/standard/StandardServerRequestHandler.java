@@ -185,6 +185,19 @@ public final class StandardServerRequestHandler implements ServerRequestHandler 
     if ( dbo != null ) {  
       try {
         storage.process(collectionName, dbo );
+      } catch ( MongoInternalException mie ) {
+        processingSuccess = false;
+        String theTrace = ExceptionUtils.getStackTrace(mie);
+        String theMessage = mie.getMessage();
+        if ( theMessage != null &&
+            theMessage.contains("is over Max BSON size")) {
+          log.error("Mongo Internal exception during storage on producer code: "+
+              producerCode+ " / Message size is over MongoDB limit - the message will be dropped!");
+          processingSuccess = true;
+        } else {
+          log.error("Mongo Internal exception during storage on producer code: "+
+              producerCode+ " / "+theTrace);
+        }
       } catch ( MongoException mongoexc ) {
         processingSuccess = false;
         String theTrace = ExceptionUtils.getStackTrace(mongoexc);
