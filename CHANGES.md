@@ -1,6 +1,14 @@
 Changes to Karibu-core
 ======================
 
+Release 2.1.0
+-------------
+
+ *) Fixed defect in daemon that made unfinite loop and flooding with
+    connections. Now, if a message is tried to be stored in MongoDB whose
+    size is over the 16 MB document size, the message is simply lost;
+    not requeued for failing once more!
+
 Release 2.0.3
 -------------
 
