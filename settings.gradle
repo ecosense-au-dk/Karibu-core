@@ -1,2 +1,4 @@
 include 'Karibu-serialization'
 include 'Karibu-producer'
+include 'Karibu-consumer'
+include 'Karibu-test'

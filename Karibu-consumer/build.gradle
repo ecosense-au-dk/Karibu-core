@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+    
+dependencies {
+    compile project(':Karibu-producer')
+    compile 'commons-lang:commons-lang:2.6'
+}
