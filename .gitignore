@@ -5,3 +5,13 @@ target/
 .project
 
 *.log
+
+*/.classpath
+*/.project
+
+.gradle/
+.settings/
+
+*/.settings/
+
+*/build/
